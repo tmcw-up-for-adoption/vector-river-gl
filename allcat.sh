@@ -7,4 +7,6 @@ for f in NHD/NHDPlus??/NHDPlus*/NHDSnapshot/Hydrography/*lowline.shp; do
         --format=dbf \
         --geojsonField=COMID \
         --againstField=ComID
-done | tippecanoe -o rivers-joined.mbtiles -y StreamOrde
+done > all.geojson
+
+tippecanoe -o rivers-joined.mbtiles -y StreamOrde < all.geojson
